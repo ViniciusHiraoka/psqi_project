@@ -1,0 +1,191 @@
+{% load bootstrap4 %}
+{% load static %}
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Questionário</title>
+    {% bootstrap_css %}
+    <script>
+        function toggleQj5Frequency() {
+            var frequencyContainer = document.getElementById('q5j_frequency-container');
+            
+            if (this.value.trim() !== '') {
+                frequencyContainer.style.display = 'table-row';  // Mostra a linha da tabela
+            } else {
+                frequencyContainer.style.display = 'none';  // Esconde a linha da tabela
+            }
+            }
+
+        window.onload = function(){
+            toggleQj5Frequency();
+            }
+
+    </script>
+</head>
+<body>
+    <div class="container">
+        <br><br>
+        <h1>Questionário PSQI</h1>
+
+        {% if messages %}
+            <div class="alert alert-danger" role="alert">
+                {% for message in messages %}
+                    {{ message }}
+                {% endfor %}
+            </div>
+        {% endif %}
+
+        <form method="POST">
+            {% csrf_token %}
+
+            <table class="table table-dark">
+                <thead>
+                    <tr>
+                        <th scope="col">#</th>
+                        <th scope="col">Pergunta</th>
+                        <th scope="col">Resposta</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>01</td>
+                        <td>Durante o último mês, quando você geralmente foi para a cama a noite?</td>
+                        <td>{{ form.q1 }}</td>
+                    </tr>
+                    <tr>
+                        <td>02</td>
+                        <td>Durante o último mês, quanto tempo (em minutos) você geralmente levou para dormir a
+                            noite? </td>
+                        <td>{{ form.q2 }}</td>
+                    </tr>
+                    <tr>
+                        <td>03</td>
+                        <td>Durante o último mês, quando você geralmente levantou de manhã? </td>
+                        <td>{{ form.q3 }}</td>
+                    </tr>
+                    <tr>
+                        <td>04</td>
+                        <td>Durante o último mês, quantas horas de sono você teve por noite? (Este pode ser diferente
+                            do número de horas que você ficou na cama) </td>
+                        <td>{{ form.q4 }}</td>
+                    </tr>
+                    <tr>
+                        <td>05</td>
+                        <td>Durante o último mês, com que frequência você teve
+                            dificuldade para dormir porque você... </td>
+                    </tr>
+                    <tr>
+                        <td>a</td>
+                        <td>não conseguiu adormecer em até 30 minutos </td>
+                        <td>{{ form.q5a }}</td>
+                    </tr>
+                    <tr>
+                        <td>b</td>
+                        <td>acordou no meio da noite ou de manhã cedo </td>
+                        <td>{{ form.q5b }}</td>
+                    </tr>
+                    <tr>
+                        <td>c</td>
+                        <td>precisou levantar para ir ao banheiro</td>
+                        <td>{{ form.q5c }}</td>
+                    </tr>
+                    <tr>
+                        <td>d</td>
+                        <td>não conseguiu respirar confortavelmente </td>
+                        <td>{{ form.q5d }}</td>
+                    </tr>
+                    <tr>
+                        <td>e</td>
+                        <td>tossiu ou roncou forte</td>
+                        <td>{{ form.q5e }}</td>
+                    </tr>
+                    <tr>
+                        <td>f</td>
+                        <td>sentiu muito frio</td>
+                        <td>{{ form.q5f }}</td>
+                    </tr>
+                    <tr>
+                        <td>g</td>
+                        <td>sentiu muito calor</td>
+                        <td>{{ form.q5g }}</td>
+                    </tr>
+                    <tr>
+                        <td>h</td>
+                        <td>teve sonhos ruins</td>
+                        <td>{{ form.q5h }}</td>
+                    </tr>
+                    <tr>
+                        <td>i</td>
+                        <td>teve dor</td>
+                        <td>{{ form.q5i }}</td>
+                    </tr>
+
+                    <!-- QUESTÃO 5. j) -->
+                    <tr>
+                        <td>j</td>
+                        <td>outra(s) razão(ões), por favor descreva:</td>
+                        <td>{{ form.q5j }}</td>
+                    </tr>
+                    <tr id="q5j_frequency-container" style="display: none;">
+                        <td></td>
+                        <td>
+                            <label for="q5j_frequency" class="hidden-label">
+                                Com que frequência, durante o último mês, você teve
+                                dificuldade para dormir devido a essa razão?
+                            </label>
+                        </td>
+                        <td>{{ form.q5j_frequency }}</td>
+                    </tr>
+                    <!-- ---------------------------------------------------------- -->
+                    <tr>
+                        <td>06</td>
+                        <td>Durante o último mês como você classificaria a
+                            qualidade do seu sono de uma maneira geral: </td>
+                        <td>{{ form.q6 }}</td>
+                    </tr>
+                    <tr>
+                        <td>07</td>
+                        <td> Durante o último mês, com que frequência você tomou
+                            medicamento (prescrito ou “por conta própria”) para lhe
+                            ajudar a dormir? 
+                            </td>
+                        <td>{{ form.q7 }}</td>
+                    </tr>
+                    <tr>
+                        <td>08</td>
+                        <td>No último mês, que frequência você teve dificuldade
+                            para ficar acordado enquanto dirigia, comia ou participava
+                            de uma atividade social (festa, reunião de amigos,
+                            trabalho, estudo) 
+                            </td>
+                        <td>{{ form.q8 }}</td>
+                    </tr>
+                    <tr>
+                        <td>09</td>
+                        <td>Durante o último mês, quão problemático foi pra você
+                            manter o entusiasmo (ânimo) para fazer as coisas (suas
+                            atividades habituais)? </td>
+                        <td>{{ form.q9 }}</td>
+                    </tr>
+                    <tr>
+                        <td>10</td>
+                        <td>Você tem um(a) parceiro [esposo (a)] ou colega de
+                            quarto? </td>
+                        <td>{{ form.q10 }}</td>
+                    </tr>
+                </tbody>
+            </table>
+            <br>
+            <button type="submit">Enviar</button>
+        </form>
+        <br><br><br><br>
+    </div>
+<script>
+    document.getElementById('q5j').addEventListener('input', toggleQj5Frequency);
+</script>
+{% bootstrap_javascript jquery='full' %}
+</body>
+</html>
+
+<!--{{ form.as_p }}-->

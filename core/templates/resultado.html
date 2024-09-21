@@ -1,0 +1,244 @@
+{% load bootstrap4 %}
+{% load static %}
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Resultado</title>
+    {% bootstrap_css %}
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+</head>
+<body>
+    <div class="container">
+        <br><br>
+        <h2>Resultados do Questionário</h2>
+
+        <table class="table table-dark table-striped">
+            <thead>
+                <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">Pergunta</th>
+                    <th scope="col">Resposta</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>01</td>
+                    <td>Durante o último mês, quando você geralmente foi para a cama à noite?</td>
+                    <td>{{ respostas.q1 }}</td>
+                </tr>
+                <tr>
+                    <td>02</td>
+                    <td>Quanto tempo você demorou, em média, para adormecer?</td>
+                    <td>{{ respostas.q2 }}</td>
+                </tr>
+                <tr>
+                    <td>03</td>
+                    <td>Quando você geralmente se levantou pela manhã?</td>
+                    <td>{{ respostas.q3 }}</td>
+                </tr>
+                <tr>
+                    <td>04</td>
+                    <td>Quanto tempo, no total, você realmente passou dormindo à noite?</td>
+                    <td>{{ respostas.q4 }}</td>
+                </tr>
+                <tr>
+                    <td>05</td>
+                    <td>Durante o último mês, com que frequência você teve
+                        dificuldade para dormir porque você... </td>
+                </tr>
+                <tr>
+                    <td>a</td>
+                    <td>não conseguiu adormecer em até 30 minutos </td>
+                    <td>{% if respostas.5a6 == 0 %} Nenhuma no último mês
+                        {% elif respostas.q5a == 1 %} Menos de uma vez por semana
+                        {% elif respostas.q5a == 2 %} Uma ou duas vezes por semana 
+                        {% elif respostas.q5a == 3 %} Três ou mais vezes na semana
+                        {% endif %}
+                    </td>
+                </tr>
+                <tr>
+                    <td>b</td>
+                    <td>acordou no meio da noite ou de manhã cedo </td>
+                    <td>
+                        {% if respostas.q5b == 0 %} Nenhuma no último mês
+                        {% elif respostas.q5b == 1 %} Menos de uma vez por semana
+                        {% elif respostas.q5b == 2 %} Uma ou duas vezes por semana 
+                        {% elif respostas.q5b == 3 %} Três ou mais vezes na semana
+                        {% endif %}
+                    </td>
+                </tr>
+                <tr>
+                    <td>c</td>
+                    <td>precisou levantar para ir ao banheiro</td>
+                    <td>
+                        {% if respostas.q5c == 0 %} Nenhuma no último mês
+                        {% elif respostas.q5c == 1 %} Menos de uma vez por semana
+                        {% elif respostas.q5c == 2 %} Uma ou duas vezes por semana 
+                        {% elif respostas.q5c == 3 %} Três ou mais vezes na semana
+                        {% endif %}
+                    </td>
+                </tr>
+                <tr>
+                    <td>d</td>
+                    <td>não conseguiu respirar confortavelmente </td>
+                    <td>
+                        {% if respostas.q5d == 0 %} Nenhuma no último mês
+                        {% elif respostas.q5d == 1 %} Menos de uma vez por semana
+                        {% elif respostas.q5d == 2 %} Uma ou duas vezes por semana 
+                        {% elif respostas.q5d == 3 %} Três ou mais vezes na semana
+                        {% endif %}
+                    </td>
+                </tr>
+                <tr>
+                    <td>e</td>
+                    <td>tossiu ou roncou forte</td>
+                    <td>
+                        {% if respostas.q5e == 0 %} Nenhuma no último mês
+                        {% elif respostas.q5e == 1 %} Menos de uma vez por semana
+                        {% elif respostas.q5e == 2 %} Uma ou duas vezes por semana 
+                        {% elif respostas.q5e == 3 %} Três ou mais vezes na semana
+                        {% endif %}
+                    </td>
+                </tr>
+                <tr>
+                    <td>f</td>
+                    <td>sentiu muito frio</td>
+                    <td>
+                        {% if respostas.q5f == 0 %} Nenhuma no último mês
+                        {% elif respostas.q5f == 1 %} Menos de uma vez por semana
+                        {% elif respostas.q5f == 2 %} Uma ou duas vezes por semana 
+                        {% elif respostas.q5f == 3 %} Três ou mais vezes na semana
+                        {% endif %}
+                    </td>
+                </tr>
+                <tr>
+                    <td>g</td>
+                    <td>sentiu muito calor</td>
+                    <td>
+                        {% if respostas.q5g == 0 %} Nenhuma no último mês
+                        {% elif respostas.q5g == 1 %} Menos de uma vez por semana
+                        {% elif respostas.q5g == 2 %} Uma ou duas vezes por semana 
+                        {% elif respostas.q5g == 3 %} Três ou mais vezes na semana
+                        {% endif %}
+                    </td>
+                </tr>
+                <tr>
+                    <td>h</td>
+                    <td>teve sonhos ruins</td>
+                    <td>
+                        {% if respostas.q5h == 0 %} Nenhuma no último mês
+                        {% elif respostas.q5h == 1 %} Menos de uma vez por semana
+                        {% elif respostas.q5h == 2 %} Uma ou duas vezes por semana 
+                        {% elif respostas.q5h == 3 %} Três ou mais vezes na semana
+                        {% endif %}
+                    </td>
+                </tr>
+                <tr>
+                    <td>i</td>
+                    <td>teve dor</td>
+                    <td>
+                        {% if respostas.q5i == 0 %} Nenhuma no último mês
+                        {% elif respostas.q5i == 1 %} Menos de uma vez por semana
+                        {% elif respostas.q5i == 2 %} Uma ou duas vezes por semana 
+                        {% elif respostas.q5i == 3 %} Três ou mais vezes na semana
+                        {% endif %}
+                    </td>
+                </tr>
+                <tr>
+                    <td>j</td>
+                    <td>Outras razões, por favor descreva:</td>
+                    <td>
+                        {% if respostas.q5j is not None %}
+                            {{ respostas.q5j }}
+                        {% endif %}
+                    </td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td>Com que frequência você teve dificuldade para dormir por essa razão?</td>
+                    <td>
+                        {% if respostas.q5j_frequency is not None %}
+                            {{ respostas.q5j_frequency }}
+                        {% else %} -------------
+                        {% endif %}
+                    </td>
+                </tr>
+                <tr>
+                    <td>06</td>
+                    <td>Como você classificaria sua qualidade de sono?</td>
+                    <td>
+                        {% if respostas.q6 == 0 %} Muito boa
+                        {% elif respostas.q6 == 1 %} Boa
+                        {% elif respostas.q6 == 2 %} Ruim
+                        {% elif respostas.q6 == 3 %} Muito ruim
+                        {% endif %}
+                    </td>
+                </tr>
+                <tr>
+                    <td>07</td>
+                    <td>Durante o último mês, com que frequência você tomou
+                        medicamento (prescrito ou “por conta própria”) para lhe
+                        ajudar a dormir?</td>
+                    <td>
+                        {% if respostas.q7 == 0 %} Nenhuma no último mês
+                        {% elif respostas.q7 == 1 %} Menos de uma vez por semana
+                        {% elif respostas.q7 == 2 %} Uma ou duas vezes por semana 
+                        {% elif respostas.q7 == 3 %} Três ou mais vezes na semana
+                        {% endif %}
+                    </td>
+                </tr>
+                <tr>
+                    <td>08</td>
+                    <td>No último mês, que frequência você teve dificuldade
+                        para ficar acordado enquanto dirigia, comia ou participava
+                        de uma atividade social (festa, reunião de amigos,
+                        trabalho, estudo) 
+                        </td>
+                    <td>{% if respostas.q8 == 0 %} Nenhuma no último mês
+                        {% elif respostas.q8 == 1 %} Menos de uma vez por semana
+                        {% elif respostas.q8 == 2 %} Uma ou duas vezes por semana 
+                        {% elif respostas.q8 == 3 %} Três ou mais vezes na semana
+                        {% endif %}</td>
+                </tr>
+                <tr>
+                    <td>09</td>
+                    <td>Durante o último mês, quão problemático foi pra você
+                        manter o entusiasmo (ânimo) para fazer as coisas (suas
+                        atividades habituais)? </td>
+                    <td>{% if respostas.q9 == 0 %} Nenhuma dificuldade
+                        {% elif respostas.q9 == 1 %} Um leve problema
+                        {% elif respostas.q9 == 2 %} Um problema razoável 
+                        {% elif respostas.q9 == 3 %} Um grande problema
+                        {% endif %}</td>
+                </tr>
+                <tr>
+                    <td>10</td>
+                    <td>Você tem um(a) parceiro [esposo (a)] ou colega de
+                        quarto? </td>
+                    <td>{% if respostas.q10 == 0 %} Não
+                        {% elif respostas.q10 == 1 %} Parceiro ou colega, mas em outro quarto
+                        {% elif respostas.q10 == 2 %} Parceiro no mesmo quarto, mas em outra cama
+                        {% elif respostas.q10 == 3 %} Parceiro na mesma cama
+                        {% endif %}</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <div class="psqi-result">
+            <h3>Pontuação Total do PSQI:</h3>
+            <p>{{ total_score }}</p>
+            <p>{{ sleep_quality }}</p>
+            <p> Caso a pontuação total seja maior que 5, seu sono é de baixa qualidade</p>
+        </div>
+        <br>
+        <div>
+            <a href="/questionario" class="button">Refazer questionario</a>
+            <a href="/" class="button">Voltar ao menu</a>
+        </div> 
+        <br><br><br><br>
+
+    </div>
+{% bootstrap_javascript jquery='full' %}
+</body>
+</html>

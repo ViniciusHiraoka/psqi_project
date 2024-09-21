@@ -1,0 +1,67 @@
+{% load bootstrap4 %}
+{% load static %}
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>PSQI</title>
+    {% bootstrap_css %}
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+</head>
+<body>
+    <div class="container">
+        <br>
+        <h1>PSQI - Índice de Qualidade do Sono de Pittsburgh</h1>
+        <br><br>
+
+        <h3>O que é o PSQI?</h3>
+        <div>
+            <p>Uma ferramenta autoaplicável usada para avaliação da qualidade do sono e de possíveis distúrbios no último mês.
+                Foi desenvolvido por Buysse et al. (1989) e validado no Brasil, em população adulta, por Bertolazi et al. (2011).</p>
+        </div>
+
+        <h3>Qual o objetivo do PSQI?</h3>
+        <div>
+            <ul>
+                <li>Avaliar a qualidade do sono no último mês</li>
+                <li>Avaliação qualitativa e quantitativa do sono</li>
+            </ul>
+        </div>
+
+        <h3>Aplicação do PSQI</h3>
+        <div>
+            <ul>
+                <li>Autorrelato do paciente</li>
+                <li>Sem custo</li>
+                <li>Fácil aplicação</li>
+                <li>Tempo: 10 a 15 minutos</li>
+            </ul>
+        </div>
+
+        <h3>Como o PSQI é calculado?</h3>
+        <div>
+            <p>Existem 19 questões dividias em 7 domínios:</p>
+            <div>
+                <ul>
+                    <li>Qualidade subjetiva do sono</li>
+                    <li>Latência do sono</li>
+                    <li>Duração do sono</li>
+                    <li>Eficiência habitual do sono</li>
+                    <li>Alterações do sono</li>
+                    <li>Uso de medicamentos</li>
+                    <li>Dinfunção diurna do sono</li>
+                </ul>
+            </div>
+            <p>
+                O seus pesos estão distribuídas em uma escala de 0 a 3. <br>
+                As pontuações dos 7 componentes do questionário devem ser somadas diretamente para produzir uma pontuação total, que pode atingir até 21 pontos. <br>
+                Quanto maior for a pontuação, pior é a qualidade do sono do paciente. <br>
+                Se a pontuação for maior que 5, sono já será considerada de baixa qualidade.
+            </p>
+        </div>
+        <br>
+        <a href="/questionario" class="button">Iniciar questionário PSQI</a>
+    </div>    
+{% bootstrap_javascript jquery='full' %}
+</body>
+</html>
